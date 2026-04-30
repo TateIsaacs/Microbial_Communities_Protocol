@@ -1,0 +1,64 @@
+{
+    "ordering": [
+        [
+            "A1"
+        ]
+    ],
+    "brand": {
+        "brand": "Thermo Fisher ",
+        "brandId": [
+            "PSS140156"
+        ]
+    },
+    "metadata": {
+        "displayName": "Nunc 1-Well Dish",
+        "displayCategory": "wellPlate",
+        "displayVolumeUnits": "µL",
+        "tags": []
+    },
+    "dimensions": {
+        "xDimension": 127.8,
+        "yDimension": 85.5,
+        "zDimension": 14.5
+    },
+    "wells": {
+        "A1": {
+            "depth": 11.6,
+            "totalLiquidVolume": 100000,
+            "shape": "rectangular",
+            "xDimension": 121.4,
+            "yDimension": 78,
+            "x": 63.9,
+            "y": 42.75,
+            "z": 2.9
+        }
+    },
+    "groups": [
+        {
+            "metadata": {
+                "wellBottomShape": "flat"
+            },
+            "wells": [
+                "A1"
+            ]
+        }
+    ],
+    "parameters": {
+        "format": "irregular",
+        "quirks": [
+            "centerMultichannelOnWells",
+            "touchTipDisabled"
+        ],
+        "isTiprack": false,
+        "isMagneticModuleCompatible": false,
+        "loadName": "nunc_1_well_dish"
+    },
+    "namespace": "custom_beta",
+    "version": 1,
+    "schemaVersion": 2,
+    "cornerOffsetFromSlot": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    }
+}
