@@ -39,7 +39,7 @@ def run(protocol: protocol_api.ProtocolContext):
         offset = 0 
         point = left_corner.move(types.Point(offset,0,0))
         left_pipette.transfer(
-            volume=100,
+            volume= 8,
             source= top_Falcon_tube,
             dest= point
         ) 
