@@ -1,7 +1,7 @@
 from opentrons import protocol_api 
 from opentrons import types             # needed for location.move() method 
 metadata = {
-    "protocolName": "Microbial Colonies V1",
+    "protocolName": "Microbial Colonies V1.3",
     "description": """This protocol is a test script for creating 
      patterened microbial communities on an agar plate. For now 
      the protocol will simply be testing the basic functions of the 
@@ -34,19 +34,36 @@ def run(protocol: protocol_api.ProtocolContext):
 
 
     # TO DO Arrangment of the microbial communities in a simple array 
-
-    for i in range(5):        # for some reason this goes to the same spot five times before picking up another tip... 
-        offset = 0 
-        point = left_corner.move(types.Point(offset,0,0))
-        left_pipette.transfer(
-            volume= 8,
-            source= top_Falcon_tube,
-            dest= point
-        ) 
-        offset += 10
-
-
     
+    # defining the postions of the different microbial communities 
+    M1 = falcontubes["A1"].top(z=-20)
+    M2 = falcontubes["A2"].top(z=-20)
+    M3 = falcontubes["A3"].top(z=-20)
+    M4 = falcontubes["A4"].top(z=-20)
+    M5 = falcontubes["A5"].top(z=-20)
+
+    microbe_list = [M1, M2, M3, M4, M5]
+    microbe_array = []
+    for i in range(4):
+        row = microbe_list.copy()
+        row[i +1] = M1
+        microbe_array.append(row)
+
+
+    for row_index, row in enumerate(microbe_array):  
+        for microbe_index, microbe in enumerate(row): 
+            x_spacing = 5
+            y_spacing = -5
+            point = left_corner.move(types.Point(x=microbe_index * x_spacing, y= row_index * y_spacing,z=0))
+            left_pipette.transfer(
+                volume= 2,
+                source= microbe,
+                dest= point
+            ) 
+            print(point)
+
+   
+        
 
 
 
